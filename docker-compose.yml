@@ -1,0 +1,18 @@
+services:
+  web:
+    image: multi-concept:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: multi-concept
+    ports:
+      - "8080:80" # Apache
+      - "2223:22" # SSH/SFTP via WinSCP
+    volumes:
+      - ./:/var/www/html/
+    develop:
+      watch:
+        - path: .
+          action: rebuild
+    restart: unless-stopped
+    network_mode: bridge # join the default Docker bridge network

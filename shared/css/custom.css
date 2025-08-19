@@ -1,0 +1,8 @@
+.bg-shade-main {
+    background-color: #E5E1DA;
+}
+
+.vh_control {
+    height: 88vh;
+    overflow: auto;
+}

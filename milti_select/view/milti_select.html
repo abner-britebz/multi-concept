@@ -1,0 +1,83 @@
+<div class="vard bg-light shadow rounded vh_control p-3">
+  <!-- Title -->
+  <div class="container bg-info-subtle rounded text-center p-1 mb-3">
+    <h3>Multi Select Concept</h3>
+  </div>
+
+  <!-- Multi-recipient input -->
+  <!-- <div class="container">
+    <label for="recipientsInput" class="form-label">Recipients</label>
+    <input
+      type="text"
+      id="recipientsInput"
+      class="form-control"
+      ng-model="recipientText"
+      ng-keydown="checkKey($event)"
+      ng-change="updateSuggestions()"
+      placeholder="Type email addresses..." /> -->
+
+  <!-- Suggestions dropdown -->
+  <!-- <ul
+      class="list-group position-absolute w-50"
+      ng-show="filteredSuggestions.length > 0">
+      <li
+        class="list-group-item list-group-item-action"
+        ng-repeat="suggestion in filteredSuggestions"
+        ng-click="addRecipient(suggestion)">
+        {{ suggestion }}
+      </li>
+    </ul> -->
+
+  <!-- Selected recipients -->
+  <!-- <div class="mt-2">
+      <span
+        class="badge bg-primary me-1"
+        ng-repeat="r in recipients track by $index">
+        {{ r }}
+        <i
+          class="bi bi-x-circle ms-1"
+          ng-click="removeRecipient($index)"
+          style="cursor: pointer"></i>
+      </span>
+    </div> 
+  </div> -->
+
+  <div class="container">
+    <label class="form-label">Recipients</label>
+    <div
+      class="form-control d-flex flex-wrap align-items-center"
+      style="min-height: 3rem; cursor: text"
+      ng-click="focusInput()">
+      <!-- badges -->
+      <span
+        class="badge bg-success me-1 mb-1"
+        ng-repeat="r in recipients track by $index">
+        {{ r.value }}
+        <i
+          class="bi bi-x-circle ms-1"
+          style="cursor: pointer"
+          ng-click="removeRecipient($index)"></i>
+      </span>
+      <!-- input -->
+      <input
+        type="text"
+        ng-model="recipientText"
+        ng-keydown="checkKey($event)"
+        ng-change="updateSuggestions()"
+        placeholder="Type email addresses..."
+        style="border: none; outline: none; flex: 1; min-width: 120px" />
+    </div>
+
+    <!-- Suggestions dropdown -->
+    <ul
+      class="list-group position-absolute w-50 mt-1"
+      ng-show="filteredSuggestions.length > 0">
+      <li
+        class="list-group-item list-group-item-action"
+        ng-repeat="suggestion in filteredSuggestions"
+        ng-click="addRecipient(suggestion)">
+        {{ suggestion.value }}
+      </li>
+    </ul>
+  </div>
+</div>
