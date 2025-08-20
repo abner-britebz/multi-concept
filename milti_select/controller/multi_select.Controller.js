@@ -32,9 +32,14 @@ app.controller('multi_selectController', ['$scope', '$timeout', function ($scope
     };
 
     // Remove recipient
-    $scope.removeRecipient = function (index) {
-        $scope.recipients.splice(index, 1);
+    $scope.removeRecipient = function (id) {
+        const idx = $scope.recipientsID.indexOf(id);
+        if (idx > -1) {
+            $scope.recipients.splice(idx, 1);
+            $scope.recipientsID.splice(idx, 1);
+        }
     };
+
 
     $scope.focusInput = function () {
         document.querySelector('input[ng-model="recipientText"]').focus();

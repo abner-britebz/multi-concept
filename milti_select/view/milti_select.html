@@ -50,13 +50,13 @@
       ng-click="focusInput()">
       <!-- badges -->
       <span
-        class="badge bg-success me-1 mb-1"
+        class="badge text-bg-secondary me-1 mb-1"
         ng-repeat="r in recipients track by $index">
         {{ r.value }}
         <i
           class="bi bi-x-circle ms-1"
           style="cursor: pointer"
-          ng-click="removeRecipient($index)"></i>
+          ng-click="removeRecipient(r.id)"></i>
       </span>
       <!-- input -->
       <input
